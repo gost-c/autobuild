@@ -1,0 +1,26 @@
+{
+  "name": "autobuild",
+  "description": "Auto build by watching github webhook",
+  "repository": {
+    "url": "zcong1993/autobuild",
+    "type": "git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "PORT=1117 node index.js",
+    "autod": "autod"
+  },
+  "author": "zcong1993 <1005997919@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-compose": "^4.0.0",
+    "koa-error": "^3.0.1",
+    "koa-logger": "^3.0.0",
+    "koa-router": "^7.2.1"
+  },
+  "devDependencies": {
+    "autod": "^2.8.0"
+  }
+}
