@@ -4,13 +4,14 @@ const debug = require('debug')('autobuild')
 
 const sh = '/root/gost-update.sh'
 const dest = '/home/wwwroot/default/gost-cli/version'
+const full_name = 'gost-c/gost-cli'
 
 exports.index = async ctx => {
   debug(ctx.request.body)
 
   payload = ctx.request.body
 
-  if (payload.action === 'published' && !payload.release.draft) {
+  if (payload.action === 'published' && !payload.release.draft && !payload.release.prerelease) {
     const version = payload.release.tag_name
     execa('sh', ['-c', sh])
       .then(() => {
@@ -19,7 +20,6 @@ exports.index = async ctx => {
           status: 'ok',
           msg: 'all done'
         }
-        return
       })
       .catch(err => {
         console.log(err)
@@ -28,6 +28,7 @@ exports.index = async ctx => {
           msg: err
         }
       })
+    return
   }
 
   ctx.body = {
