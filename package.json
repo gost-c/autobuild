@@ -14,6 +14,7 @@
   "author": "zcong1993 <1005997919@qq.com>",
   "license": "MIT",
   "dependencies": {
+    "execa": "^0.7.0",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-compose": "^4.0.0",
