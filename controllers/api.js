@@ -13,23 +13,20 @@ exports.index = async ctx => {
 
   if (payload.action === 'published' && !payload.release.draft && !payload.release.prerelease) {
     const version = payload.release.tag_name
-    execa('sh', ['-c', sh])
-      .then(() => {
-        fs.writeFileSync(dest, version)
-        ctx.body = {
-          status: 'ok',
-          msg: 'all done'
-        }
-        return
-      })
-      .catch(err => {
-        console.log(err)
-        ctx.body = {
-          status: 'error',
-          msg: err
-        }
-        return
-      })
+    try {
+      await execa('sh', ['-c', sh])
+      fs.writeFileSync(dest, version)
+      return ctx.body = {
+        status: 'ok',
+        msg: 'all done'
+      }
+    } catch (err) {
+      console.log(err)
+      return ctx.body = {
+        status: 'error',
+        msg: err
+      }
+    }
   }
 
   ctx.body = {
