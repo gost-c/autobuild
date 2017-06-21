@@ -20,6 +20,7 @@ exports.index = async ctx => {
           status: 'ok',
           msg: 'all done'
         }
+        return
       })
       .catch(err => {
         console.log(err)
@@ -27,8 +28,8 @@ exports.index = async ctx => {
           status: 'error',
           msg: err
         }
+        return
       })
-    return
   }
 
   ctx.body = {
