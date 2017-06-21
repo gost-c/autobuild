@@ -13,8 +13,8 @@ exports.index = async ctx => {
     debug(ctx.request.body)
     const version = payload.release.tag_name
     // not wait
+    await fs.writeFile(dest, version)
     execa('sh', ['-c', sh])
-    fs.writeFileSync(dest, version)
 
     return ctx.body = {
       status: 'ok',
