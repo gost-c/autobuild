@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "PORT=1117 node index.js",
+    "debug": "DEBUG=autobuild npm run start",
     "autod": "autod"
   },
   "author": "zcong1993 <1005997919@qq.com>",
@@ -21,6 +22,7 @@
     "koa-router": "^7.2.1"
   },
   "devDependencies": {
-    "autod": "^2.8.0"
+    "autod": "^2.8.0",
+    "debug": "^2.6.8"
   }
 }

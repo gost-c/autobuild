@@ -1,4 +1,6 @@
+const debug = require('debug')('autobuild')
+
 exports.index = async ctx => {
-  console.log(ctx.request.body)
+  debug(ctx.request.body)
   ctx.body = ctx.request.body
 }
